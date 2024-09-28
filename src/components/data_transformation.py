@@ -91,5 +91,5 @@ class DataTransformation:
             logging.info("Exception occured while data ingestion")
             raise customexception(e, sys)
 
-obj=DataTransformation()
-obj.initiate_data_transform("../../artifacts/train.csv", "../../artifacts/test.csv")
+#obj=DataTransformation()
+#obj.initiate_data_transform("../../artifacts/train.csv", "../../artifacts/test.csv")

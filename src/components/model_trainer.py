@@ -49,10 +49,10 @@ class ModelTrainer:
             logging.info("Exception occured while data ingestion")
             raise customexception(e, sys)
 
-from src.components.data_transformation import DataTransformation, DataTransformationConfig
-
-obj=DataTransformation()
-train_arr, test_arr=obj.initiate_data_transform("../../artifacts/train.csv", "../../artifacts/test.csv")
-
-obj1=ModelTrainer()
-obj1.initiate_model_training(train_arr, test_arr)
+#from src.components.data_transformation import DataTransformation, DataTransformationConfig
+#
+#obj=DataTransformation()
+#train_arr, test_arr=obj.initiate_data_transform("../../artifacts/train.csv", "../../artifacts/test.csv")
+#
+#obj1=ModelTrainer()
+#obj1.initiate_model_training(train_arr, test_arr)

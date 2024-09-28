@@ -37,5 +37,5 @@ class DataIngestion:
             logging.info("Exception occured while data ingestion")
             raise customexception(e, sys)
 
-obj=DataIngestion()
-obj.initiate_data_ingestion()
+#obj=DataIngestion()
+#obj.initiate_data_ingestion()
