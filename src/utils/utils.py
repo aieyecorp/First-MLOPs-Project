@@ -2,7 +2,11 @@ import os
 import pickle
 # adding src to the system path
 import sys
-sys.path.insert(0, '/media/thirdeye/Data/ai.corp.eye/First-MLOPs-Project/')
+import os
+# Get the current working directory (CWD)
+cwd = os.getcwd()
+# Append the CWD to sys.path
+sys.path.append(cwd)
 from src.exception import customexception
 from sklearn.metrics import r2_score
 

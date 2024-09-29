@@ -1,7 +1,10 @@
 # adding src to the system path
 import sys
-sys.path.insert(0, '/media/thirdeye/Data/ai.corp.eye/First-MLOPs-Project/')
 import os
+# Get the current working directory (CWD)
+cwd = os.getcwd()
+# Append the CWD to sys.path
+sys.path.append(cwd)
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
@@ -15,7 +18,7 @@ from src.utils.utils import save_object
 
 class DataTransformationConfig:
     #TODO define path transformation pickle artifacts
-    preprocessor_path=os.path.join("../../artifacts","preprocessor.pkl")
+    preprocessor_path=os.path.join("artifacts","preprocessor.pkl")
 
 class DataTransformation:
     def __init__(self):

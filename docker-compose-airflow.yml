@@ -1,0 +1,19 @@
+version: "3"
+services:
+  airflow:
+    image: airflow:latest
+    container_name: gemstone-prediction-airflow
+    environment:
+      - AIRFLOW__CORE__LOAD_EXAMPLES=True  # Don't load example DAGs
+      - AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION=True  # Ensure new DAGs aren't paused
+    ports:
+      - "8080:8080"
+
+  flaskapp:
+    #build:
+    #  context: ./
+    #  dockerfile: Dockerfile.flask
+    image: flaskimage
+    container_name: gemstone-prediction-flask
+    ports:
+      - "80:80"

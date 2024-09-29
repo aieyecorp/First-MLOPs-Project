@@ -1,7 +1,10 @@
 # adding src to the system path
 import sys
-sys.path.insert(0, '/media/thirdeye/Data/ai.corp.eye/First-MLOPs-Project/')
 import os
+# Get the current working directory (CWD)
+cwd = os.getcwd()
+# Append the CWD to sys.path
+sys.path.append(cwd)
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression, Ridge, Lasso, ElasticNet
@@ -13,7 +16,7 @@ from src.utils.utils import save_object, evaluate_model
 
 class ModelTrainerConfig:
     #TODO define path for saved model path
-    trained_model_path=os.path.join("../../artifacts", "model.pkl")
+    trained_model_path=os.path.join("artifacts", "model.pkl")
     
 class ModelTrainer:
     def __init__(self):

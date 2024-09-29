@@ -1,7 +1,10 @@
 # adding src to the system path
 import os
 import sys
-sys.path.insert(0, '/media/thirdeye/Data/ai.corp.eye/First-MLOPs-Project/')
+# Get the current working directory (CWD)
+cwd = os.getcwd()
+# Append the CWD to sys.path
+sys.path.append(cwd)
 from src.exception import customexception
 from src.logger.custom_logging import logging
 from src.utils.utils import load_object
@@ -28,7 +31,7 @@ class ModelEvolution:
             #TODO split dependent and independent variable from train and tes array
             x_test, y_test=(test_arr[:, :-1], test_arr[:, -1])
             logging.info(f"Model evolution has started ....")
-            model_path=os.path.join("../../artifacts", "model.pkl")
+            model_path=os.path.join("artifacts", "model.pkl")
             model=load_object(model_path)
 
             #TODO Use mlflow to register model
@@ -59,11 +62,11 @@ class ModelEvolution:
 
 model_evolution=ModelEvolution()
 #TODO load "../../artifacts/test.csv"
-test_data=pd.read_csv(os.path.join("../../artifacts", "test.csv"))
+test_data=pd.read_csv(os.path.join("artifacts", "test.csv"))
 #TODO perform trandformation on test data
 test_feature_dependent=test_data.drop(['id', 'price'],axis=1)
 test_feature_independent=test_data['price']
-preprocessor=load_object(os.path.join("../../artifacts", "preprocessor.pkl"))
+preprocessor=load_object(os.path.join("artifacts", "preprocessor.pkl"))
 trans_test_feature_dependent=preprocessor.transform(test_feature_dependent)
 final_concat_test_data=np.c_[trans_test_feature_dependent, np.array(test_feature_independent)]
 model_evolution.initiate_model_evolution(final_concat_test_data)

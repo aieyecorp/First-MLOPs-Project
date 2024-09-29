@@ -1,6 +1,10 @@
 # adding src to the system path
 import sys
-sys.path.insert(0, '/media/thirdeye/Data/ai.corp.eye/First-MLOPs-Project/')
+import os
+# Get the current working directory (CWD)
+cwd = os.getcwd()
+# Append the CWD to sys.path
+sys.path.append(cwd)
 from src.exception import customexception
 from src.components.data_ingestion import DataIngestion
 from src.components.data_transformation import DataTransformation

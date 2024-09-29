@@ -1,7 +1,10 @@
 # adding src to the system path
 import sys
-sys.path.insert(0, '/media/thirdeye/Data/ai.corp.eye/First-MLOPs-Project/')
 import os
+# Get the current working directory (CWD)
+cwd = os.getcwd()
+# Append the CWD to sys.path
+sys.path.append(cwd)
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from src.logger.custom_logging import logging
@@ -9,9 +12,9 @@ from src.exception import customexception
 
 class DataIngestionConfig:
     #TODO define path for train, test and raw csv artifacts
-    raw_data_path=os.path.join("../../artifacts","raw.csv") 
-    train_data_path=os.path.join("../../artifacts","train.csv")
-    test_data_path=os.path.join("../../artifacts","test.csv")
+    raw_data_path=os.path.join("artifacts","raw.csv") 
+    train_data_path=os.path.join("artifacts","train.csv")
+    test_data_path=os.path.join("artifacts","test.csv")
 
 class DataIngestion:
     def __init__(self):
@@ -19,7 +22,7 @@ class DataIngestion:
     def initiate_data_ingestion(self):
         try:
             #TODO Load train 
-            raw_data=pd.read_csv(os.path.join("../../experiment", "train.csv"))
+            raw_data=pd.read_csv(os.path.join("experiment", "train.csv"))
             #TODO train and test split and prepare train and test csv artifacts
             train_data, test_data = train_test_split(raw_data, test_size=0.3)
             logging.info("Raw data has been splitted !!")
